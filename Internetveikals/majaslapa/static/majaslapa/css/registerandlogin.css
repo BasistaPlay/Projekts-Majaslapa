@@ -1,6 +1,10 @@
 
 /*Under top menu*/
 
+input{
+    color: var(--clr-text);
+}
+
 .LoginMain{
     width: 430px;
     height: auto;
@@ -273,6 +277,7 @@ button:hover{
     border-radius: 20px;
     background: var(--clr-gray);
     font-size: 16px;
+    color: var(--clr-text);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -368,7 +373,7 @@ button:hover{
     transform: translateX(10px) translateY(-10px);
     font-size: 0.8em;
     padding: 0 10px;
-    background-color: #fff;
+    background-color: var(--clr-white);
     border-left: 1px solid #6FB64D;
     border-right: 1px solid #6FB64D;
 }
@@ -388,12 +393,17 @@ button:hover{
     margin-bottom: 15px;
     width: 10;
     background-color: var(--clr-gray);
+    color: var(--clr-text);
  }
 
  .p .span {
     font-size: 5px;
-     background:var(--clr-white);
      padding:0 10px;
      font-size: 22px;
      font-family: 'Montserrat', sans-serif;
+     color: var(--clr-text);
+ }
+
+ .ionicon{
+    color: var(--clr-text);
  }

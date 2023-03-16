@@ -1,3 +1,6 @@
+from django.views.generic import TemplateView
+import uuid
+from django.db.models import Max
 from unicodedata import category
 from django.views.generic.base import View
 from email import message
@@ -33,9 +36,9 @@ from decimal import Decimal
 def order(request):
     logined_user = request.user
     user_id = logined_user.id
-    order = orders.objects.filter(user = user_id)
-    return render(request, 'majaslapa/order_info.html',{
-        'order' : order,
+    order = orders.objects.filter(user=user_id)
+    return render(request, 'majaslapa/order_info.html', {
+        'order': order,
     })
 
 
@@ -47,8 +50,8 @@ def search(request):
     else:
         Preces = Product.objects.all()
 
-    return render(request, 'majaslapa/Product.html',{
-        'product_list': Preces,})
+    return render(request, 'majaslapa/Product.html', {
+        'product_list': Preces, })
 
 
 class sakums(ListView):
@@ -71,9 +74,9 @@ def account(request):
         p_form = ProfileUpdateForm(request.POST,
                                    request.FILES,
                                    instance=request.user.profile)
-        if  p_form.is_valid():
+        if p_form.is_valid():
             p_form.save()
-            return redirect('account') # Redirect back to profile pag
+            return redirect('account')  # Redirect back to profile pag
 
     else:
         p_form = ProfileUpdateForm(instance=request.user.profile)
@@ -92,8 +95,13 @@ def deleteuser(request):
     user.delete()
     return redirect('sakums')
 
+
 def about(request):
     return render(request, 'majaslapa/about.html')
+
+
+def instruction(request):
+    return render(request, 'majaslapa/instruction.html')
 
 
 def loginpage(request):
@@ -108,10 +116,12 @@ def loginpage(request):
             login(request, user)
             return redirect('sakums')
         else:
-            messages.warning(request, _('Nav pareizs lietotājvārds vai parole'))
+            messages.warning(request, _(
+                'Nav pareizs lietotājvārds vai parole'))
 
     context = {}
     return render(request, 'majaslapa/login.html', context)
+
 
 def register(request):
     form = CreateUserForm(request.POST)
@@ -129,15 +139,15 @@ def register(request):
         else:
             messages.info(request, form.errors)
 
-
     context = {'form': form}
     return render(request, 'majaslapa/register.html', context)
+
 
 class PasswordsChangeView(PasswordChangeView):
     form_class = FormChangePassword
     success_url = reverse_lazy('account')
 
-from django.db.models import Max
+
 class category(ListView):
     def get(self, request, slug_url):
 
@@ -147,8 +157,8 @@ class category(ListView):
         # Max_price = Product.objects.all().order_by('regular_price')
         # print(Max_price)
         value = Product.objects.filter(
-            category = kategorija
-            ).aggregate(maxvalue=Max('regular_price'))['maxvalue']
+            category=kategorija
+        ).aggregate(maxvalue=Max('regular_price'))['maxvalue']
         print(value)
 
         if not value:
@@ -164,27 +174,31 @@ class category(ListView):
         # sspec = Specification_name.objects.all()
         # specification = Specification_name.object.all()
 
-        #Choices are: id, product, product_id, specification, specification_id, specification_value, specification_value_en, specification_value_lv
-
+        # Choices are: id, product, product_id, specification, specification_id, specification_value, specification_value_en, specification_value_lv
 
         if filtrs:
-            Preces = Product.objects.all().filter (Q(category = kategorija)).filter(regular_price__gte=price_from).filter(Q(regular_price__lte=price_to)).filter(productspecificationvalue__value__contains = filtrs)
+            Preces = Product.objects.all().filter(Q(category=kategorija)).filter(regular_price__gte=price_from).filter(
+                Q(regular_price__lte=price_to)).filter(productspecificationvalue__value__contains=filtrs)
         elif sort_order == 'Ascending':
-            Preces = Product.objects.all().filter (Q(category = kategorija)).filter(regular_price__gte=price_from).filter(regular_price__lte=price_to).order_by('-regular_price')
+            Preces = Product.objects.all().filter(Q(category=kategorija)).filter(
+                regular_price__gte=price_from).filter(regular_price__lte=price_to).order_by('-regular_price')
         elif sort_order == 'Descending':
-            Preces = Product.objects.all().filter (Q(category = kategorija)).filter(regular_price__gte=price_from).filter(regular_price__lte=price_to).order_by('regular_price')
+            Preces = Product.objects.all().filter(Q(category=kategorija)).filter(
+                regular_price__gte=price_from).filter(regular_price__lte=price_to).order_by('regular_price')
         elif sort_order == 'AZ':
-            Preces = Product.objects.all().filter (Q(category = kategorija)).filter(regular_price__gte=price_from).filter(regular_price__lte=price_to).order_by('title')
+            Preces = Product.objects.all().filter(Q(category=kategorija)).filter(
+                regular_price__gte=price_from).filter(regular_price__lte=price_to).order_by('title')
         elif sort_order == 'ZA':
-            Preces = Product.objects.all().filter (Q(category = kategorija)).filter(regular_price__gte=price_from).filter(regular_price__lte=price_to).order_by('-title')
+            Preces = Product.objects.all().filter(Q(category=kategorija)).filter(
+                regular_price__gte=price_from).filter(regular_price__lte=price_to).order_by('-title')
         else:
-            Preces = Product.objects.all().filter (Q(category = kategorija)).order_by('-regular_price')
+            Preces = Product.objects.all().filter(
+                Q(category=kategorija)).order_by('-regular_price')
 
-
-
-        if Product.objects.all().filter (Q(category = kategorija)):
-            obj  = Product.objects.all().filter (Q(category = kategorija)).first()
-            Specifikacija = ProductSpecification.objects.all().filter(Q(Product_type__id__contains= obj.product_type.id))
+        if Product.objects.all().filter(Q(category=kategorija)):
+            obj = Product.objects.all().filter(Q(category=kategorija)).first()
+            Specifikacija = ProductSpecification.objects.all().filter(
+                Q(Product_type__id__contains=obj.product_type.id))
             SpecifikacijaVertiba = ProductSpecificationValue.objects.all()
         else:
             Specifikacija = ''
@@ -193,7 +207,6 @@ class category(ListView):
         if SpecifikacijaVertiba == SpecifikacijaVertiba:
             SpecifikacijaVertiba == ''
 
-
         p = Paginator(Preces, 10)
         page_num = request.GET.get('page', 1)
         try:
@@ -201,26 +214,27 @@ class category(ListView):
         except EmptyPage:
             page = p.page(1)
 
-        return render(request, 'majaslapa/Product.html',{
+        return render(request, 'majaslapa/Product.html', {
             'product_list': page,
-            'kategorija':kategorija,
-            'price_from':price_from,
-            'price_to':price_to,
-            'Specifikacija':Specifikacija,
-            'spec_product' : SpecifikacijaVertiba,
-            'spec' : ProductSpecificationValue.objects.all(),
+            'kategorija': kategorija,
+            'price_from': price_from,
+            'price_to': price_to,
+            'Specifikacija': Specifikacija,
+            'spec_product': SpecifikacijaVertiba,
+            'spec': ProductSpecificationValue.objects.all(),
         })
 
 
 def product_info(request, slug_url):
     Preces = Product.objects.get(slug=slug_url)
     context = {
-        'Preces' : Product.objects.get(slug=slug_url),
-        'product_list': Product.objects.filter(id = Preces.id),
-        'image_prod' : ProductImage.objects.filter(product_id = Preces.id),
-        'spec' : ProductSpecificationValue.objects.filter(product_id = Preces.id),
+        'Preces': Product.objects.get(slug=slug_url),
+        'product_list': Product.objects.filter(id=Preces.id),
+        'image_prod': ProductImage.objects.filter(product_id=Preces.id),
+        'spec': ProductSpecificationValue.objects.filter(product_id=Preces.id),
     }
     return render(request, 'majaslapa/product_info.html', context)
+
 
 def contact(request):
     if request.method == 'POST':
@@ -236,15 +250,14 @@ def contact(request):
         contact.details = details
         contact.save()
 
-        messages.success(request, _("Jūsu vēstule tika nosūtia mums!"), extra_tags='alert')
+        messages.success(request, _(
+            "Jūsu vēstule tika nosūtia mums!"), extra_tags='alert')
     return render(request, 'majaslapa/contact.html')
 
 
 def logoutUser(request):
     logout(request)
     return redirect('login')
-
-
 
 
 def activate(request, uidb64, token):
@@ -260,7 +273,8 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
 
-        messages.success(request, _("Paldies par e-pasta apstiprinājumu. Tagad varat pierakstīties savā kontā."))
+        messages.success(request, _(
+            "Paldies par e-pasta apstiprinājumu. Tagad varat pierakstīties savā kontā."))
         return redirect('login')
     else:
         messages.error(request, _('Aktivizācijas saite nav derīga!'))
@@ -279,9 +293,11 @@ def activateEmail(request, user, to_email):
         'token': account_activation_token.make_token(user),
         "protocol": "https" if request.is_secure() else 'http'
     }
-    message = render_to_string('majaslapa/template_activate_account.html', context=context)
+    message = render_to_string(
+        'majaslapa/template_activate_account.html', context=context)
 
-    email = EmailMessage(mail_subject, message, settings.EMAIL_HOST_USER ,to=Email)
+    email = EmailMessage(mail_subject, message,
+                         settings.EMAIL_HOST_USER, to=Email)
     email.content_subtype = 'html'
     email.fail_silently = False
 
@@ -290,19 +306,21 @@ def activateEmail(request, user, to_email):
         messages.success(request, _(f'Cien {user}, lūdzu dodieties uz e-pasta {Email} iesūtni un noklikšķiniet uz \
             saņemta aktivizācijas saite, lai apstiprinātu un pabeigtu reģistrāciju. Piezīme: Ja neredzat vēstūli, lūdzu pārbaudiet mēstules mapi.'))
     else:
-        messages.error(request, _(f'Notika problēma, sūtot e-pastu uz {Email}, pārbaudiet, vai ierakstījāt pareizi.'))
+        messages.error(request, _(
+            f'Notika problēma, sūtot e-pastu uz {Email}, pārbaudiet, vai ierakstījāt pareizi.'))
 # Create your views here.
 
-import uuid
-#Groza funkcija:
-#Groza lapa
+
+# Groza funkcija:
+# Groza lapa
+
+
 @login_required(login_url='/account/login/')
 def cart(request):
     return render(request, 'majaslapa/cart.html')
 
 
-
-#Groza pievienošana
+# Groza pievienošana
 @login_required(login_url='/account/login/')
 def cart_add(request, id):
     cart = Cart(request)
@@ -310,7 +328,9 @@ def cart_add(request, id):
     cart.add(product=product)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-#Groza niņemšana
+# Groza niņemšana
+
+
 @login_required(login_url='/account/login/')
 def item_clear(request, id):
     cart = Cart(request)
@@ -318,7 +338,9 @@ def item_clear(request, id):
     cart.remove(product)
     return redirect("cart")
 
-#Groza daudzuma palielināšana
+# Groza daudzuma palielināšana
+
+
 @login_required(login_url='/account/login/')
 def item_increment(request, id):
     cart = Cart(request)
@@ -327,7 +349,9 @@ def item_increment(request, id):
     cart.add(product=product)
     return redirect("cart")
 
-#Groza daudzuma pamazināšana
+# Groza daudzuma pamazināšana
+
+
 @login_required(login_url='/account/login/')
 def item_decrement(request, id):
     cart = Cart(request)
@@ -335,7 +359,9 @@ def item_decrement(request, id):
     cart.decrement(product=product)
     return redirect("cart")
 
-#Groza Izstītīt visu frozu
+# Groza Izstītīt visu frozu
+
+
 @login_required(login_url='/account/login/')
 def cart_clear(request):
     cart = Cart(request)
@@ -346,7 +372,6 @@ def cart_clear(request):
 @login_required(login_url='/account/login/')
 def cart_detail(request):
     return render(request, 'cart/cart_detail.html')
-
 
 
 @csrf_exempt
@@ -372,32 +397,33 @@ def create_checkout_sessionn(request, slug_url):
 
         try:
             checkout_session = stripe.checkout.Session.create(
-                success_url = domain_url + '/success/',#?session_id={CHECKOUT_SESSION_ID}
-                cancel_url = domain_url + '/cancelled/',
+                # ?session_id={CHECKOUT_SESSION_ID}
+                success_url=domain_url + '/success/',
+                cancel_url=domain_url + '/cancelled/',
                 payment_method_types=['card'],
-                line_items = [
+                line_items=[
                     {
                         'quantity': 1,
-                        'price_data' : {
+                        'price_data': {
                             'currency': "eur",
-                            'unit_amount' : int(Price * 100),
-                        'product_data': {
-                            'name': Preces.title,
-                            'description': Preces.desciption,
-      },
-                }
+                            'unit_amount': int(Price * 100),
+                            'product_data': {
+                                'name': Preces.title,
+                                'description': Preces.desciption,
+                            },
+                        }
                     }
                 ],
-                metadata= {
-                    'product_id' : Preces.id,
-                    'client_reference_id' : user.id},
+                metadata={
+                    'product_id': Preces.id,
+                    'client_reference_id': user.id},
                 mode='payment',
             )
             return JsonResponse({'sessionId': checkout_session['id']})
         except Exception as e:
             return JsonResponse({'error': str(e)})
 
-from django.views.generic import TemplateView
+
 class SuccessView(TemplateView):
     template_name = 'majaslapa/order_info.html'
 
@@ -446,13 +472,14 @@ def stripe_webhook(request):
 
         orders.objects.create(
             Order_number=Order_number,
-            quantity= quantity_order,
-            amount = amount / 100,
-            product_id = product_id,
-            user_id = user_id
-         )
+            quantity=quantity_order,
+            amount=amount / 100,
+            product_id=product_id,
+            user_id=user_id
+        )
 
-        Product.objects.filter(id = product_id).update(quantity=F('quantity') - quantity_order)
+        Product.objects.filter(id=product_id).update(
+            quantity=F('quantity') - quantity_order)
 
     return HttpResponse(status=200)
 
@@ -472,25 +499,26 @@ def create_checkout_session(request, slug_url):
 
         try:
             checkout_session = stripe.checkout.Session.create(
-                success_url = domain_url + '/success/',#?session_id={CHECKOUT_SESSION_ID}
-                cancel_url = domain_url + '/cancelled/',
+                # ?session_id={CHECKOUT_SESSION_ID}
+                success_url=domain_url + '/success/',
+                cancel_url=domain_url + '/cancelled/',
                 payment_method_types=['card'],
-                line_items = [
+                line_items=[
                     {
                         'quantity': 1,
-                        'price_data' : {
+                        'price_data': {
                             'currency': "eur",
-                            'unit_amount' : int(Price * 100),
-                        'product_data': {
-                            'name': Preces.title,
-                            'description': Preces.desciption,
-      },
-                }
+                            'unit_amount': int(Price * 100),
+                            'product_data': {
+                                'name': Preces.title,
+                                'description': Preces.desciption,
+                            },
+                        }
                     }
                 ],
-                metadata= {
-                    'product_id' : Preces.id,
-                    'client_reference_id' : user.id},
+                metadata={
+                    'product_id': Preces.id,
+                    'client_reference_id': user.id},
                 mode='payment',
             )
             return JsonResponse({'sessionId': checkout_session['id']})
@@ -500,6 +528,7 @@ def create_checkout_session(request, slug_url):
 
 def eror404(request, exception):
     return render(request, 'majaslapa/error/404.html')
+
 
 def handle_server_error(request):
     return render(request, "majaslapa/error/500.html")

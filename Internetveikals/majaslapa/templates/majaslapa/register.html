@@ -12,39 +12,39 @@
 
 
 {% block body %}
-    <div class="LoginMain">
-        <h1>{% trans 'Reģistrēties' %}</h1>
-        <form method="POST" action="">
+<div class="LoginMain">
+    <h1>{% trans 'Reģistrēties' %}</h1>
+    <form method="POST" action="">
         {% csrf_token %}
 
-            {% for field in form %}
-                {{ field.errors.as_ul }}
-            {% endfor %}
+        {% for field in form %}
+        {{ field.errors.as_ul }}
+        {% endfor %}
 
-            {% for f in form %}
-            {% comment %} <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p> {% endcomment %}
-            {{f}}
-            {% endfor %}
+        {% for f in form %}
+        {{f}}
+        {% endfor %}
 
-            <input type="submit" name="submit" class="register_button" value="{% trans 'Reģistrēties' %}" />
-            <p class='p'><span class='span'>{% trans 'vai' %}</span></p>
-            <a href='{% url 'login' %}'><input type="button" class='register_button' value="{% trans 'Pieslēgties' %}" /></a>
+        <input type="submit" name="submit" class="register_button" value="{% trans 'Reģistrēties' %}" />
+        <p class='p'><span class='span'>{% trans 'vai' %}</span></p>
+        <a href='{% url "login" %}'><input type="button" class='register_button'
+                value="{% trans 'Pieslēgties' %}" /></a>
 
 
 
-        </div>
+</div>
 
-    </div>
+</div>
 
-    {% endblock %}
+{% endblock %}
 
-    {% block js %}
-    <script>
-      var form_fields = document.getElementsByTagName('input')
-      form_fields[2].placeholder = '{% trans "Lietotājvārds" %}'
-      form_fields[3].placeholder = '{% trans "E-pasts" %}'
-      form_fields[4].placeholder = "{% trans 'Parole' %}"
-      form_fields[5].placeholder = "{% trans 'Atkārtot paroli' %}"
-    </script>
-    
-    {% endblock %}
+{% block js %}
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[3].placeholder = '{% trans "Lietotājvārds" %}'
+    form_fields[4].placeholder = '{% trans "E-pasts" %}'
+    form_fields[5].placeholder = "{% trans 'Parole' %}"
+    form_fields[6].placeholder = "{% trans 'Atkārtot paroli' %}"
+</script>
+
+{% endblock %}

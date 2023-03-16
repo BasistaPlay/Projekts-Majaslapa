@@ -3,120 +3,115 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title>{% block title %}{% endblock %}</title>
-		<link rel="shortcut icon" href="{% static '/majaslapa/image/Logo.png' %} " />
-		<link rel="stylesheet" href="{% static '/majaslapa/css/base.css' %}" />
-		{% block css %}{% endblock %}
-		<script
-			type="module"
-			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-		></script>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-		/>
-	</head>
-	<body>
-		<div class="site_top_menu">
-			<ul class="left_top">
-				<li class="left">
-					<a class="about" href="{% url 'about' %}">{% trans 'Par mums' %}</a>
-				</li>
-				<a class="stick1">|</a>
-				<li class="left">
-					<a class="contact" href="{% url 'contact' %}">{% trans 'kontakti' %}</a>
-				</li>
-				{% if user.is_superuser %}
-				<b style='color:#fff; margin-right:15px'>|</b>
-					<a class="contact" href="{% url 'admin:index' %}">Admin</a>
-				{% endif %}
-			</ul>
 
-			<!--
-				dark mode button
-			-->
-			<div class="darkmodebtn">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="shortcut icon" href="{% static '/majaslapa/image/Logo.png' %} " />
+	<link rel="stylesheet" href="{% static '/majaslapa/css/base.css' %}" />
+	{% block css %}{% endblock %}
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+</head>
+
+<body>
+	<div class="site_top_menu">
+		<ul class="left_top">
+			<li class="left">
+				<a class="about" href="{% url 'about' %}">{% trans 'Par mums' %}</a>
+			</li>
+			<a class="stick1">|</a>
+			<li class="left">
+				<a class="contact" href="{% url 'contact' %}">{% trans 'kontakti' %}</a>
+			</li>
+			<a class="stick1">|</a>
+			<li class="left">
+				<a class="contact" href="{% url 'instruction' %}">{% trans 'Instrukcija' %}</a>
+			</li>
+			{% if user.is_superuser %}
+			<b style='color:#fff; margin-right:15px'>|</b>
+			<a class="contact" href="{% url 'admin:index' %}">Admin</a>
+			{% endif %}
+			<li class="left">
 				<input type="checkbox" class="checkbox" id="checkbox">
-					<svg class="darkmodeicon" height="25px" width="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496"><path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/></svg>
+				<svg class="contact" height="25px" width="25px" xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 496 496">
+					<path fill="currentColor"
+						d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+						transform="translate(-8 -8)" />
+				</svg>
 				</label>
-			</div>
+			</li>
+		</ul>
 
 
-			{% get_current_language as CURRENT_LANGUAGE %}
-            {% get_available_languages as AVAILABLE_LANGUAGES %}
-            {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+		{% get_current_language as CURRENT_LANGUAGE %}
+		{% get_available_languages as AVAILABLE_LANGUAGES %}
+		{% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
 
-			<ul class="right_top">
-				<ul class="phone right1">
-					<li class="cart-phone">
-						<a href="{% url 'cart' %}">{% trans 'Grozs' %}</a>
-					</li>
-					<ion-icon name="cart-outline" class="phone-carticon"></ion-icon>
-					<li class="phone-acc">
-						<a href="{% url 'account' %}">{% trans 'Profils' %}</a
-						><i class="bi bi-person-circle"></i>
-					</li>
-				</ul>
-				<li class="right1">
-					<img
-						class="lvimg"
-						src="{% static 'majaslapa/image/LV.png' %}"
-						alt="lv"
-					/>
-					<a class="LV" href="/lv{{ request.get_full_path |slice:'3:'}}">LV</a>
+		<ul class="right_top">
+			<ul class="phone right1">
+				<li class="cart-phone">
+					<a href="{% url 'cart' %}">{% trans 'Grozs' %}</a>
 				</li>
-				<li class="right1">
-					<img
-						class="ukimg"
-						src="{% static 'majaslapa/image/ENG.png' %}"
-						alt="en"
-					/>
-					<a class="EN" href="/en{{ request.get_full_path |slice:'3:'}}">EN</a>
+				<ion-icon name="cart-outline" class="phone-carticon"></ion-icon>
+				<li class="phone-acc">
+					<a href="{% url 'account' %}">{% trans 'Profils' %}</a><i class="bi bi-person-circle"></i>
 				</li>
-				<a class="stick2">|</a>
-				{% if request.user.is_authenticated %}
-				<li class="right">
-					<a href="{% url 'logout' %}">{% trans 'Izlogoties' %}</a>
-				</li>
+			</ul>
+			<li class="right1">
+				<img class="lvimg" src="{% static 'majaslapa/image/LV.png' %}" alt="lv" />
+				<a class="LV" href="/lv{{ request.get_full_path |slice:'3:'}}">LV</a>
+			</li>
+			<li class="right1">
+				<img class="ukimg" src="{% static 'majaslapa/image/ENG.png' %}" alt="en" />
+				<a class="EN" href="/en{{ request.get_full_path |slice:'3:'}}">EN</a>
+			</li>
+			<a class="stick2">|</a>
+			{% if request.user.is_authenticated %}
+			<li class="right">
+				<a href="{% url 'logout' %}">{% trans 'Izlogoties' %}</a>
+			</li>
+			{% else %}
+			<li class="right">
+				<a href="{% url 'login' %}">{% trans 'Pieslēgties' %}</a>
+			</li>
+			<a class="stick2">|</a>
+			<li class="right">
+				<a href="{% url 'register' %}">{% trans 'Reģistrēties' %}</a>
+			</li>
+			{% endif %}
+		</ul>
+	</div>
+
+	<div class="site_undertop">
+		<div class="Logo">
+			<a class="Logo" href="{% url 'sakums' %}">BALTICTECH.com</a>
+		</div>
+		<form class="boxContainer" action='{% url "search" %}'>
+			<input type="text" placeholder="{% trans 'Meklēt...' %}" class="search" name='search' />
+		</form>
+		<ul class="right_menu">
+			<li class="cart"><a href="{% url 'cart' %}">{% trans 'Grozs' %}</a></li>
+			<ion-icon name="cart-outline" class="carticon"></ion-icon>
+			<li class="acc">
+				{% if user.is_authenticated %}
+				<a href="{% url 'account' %}" style='position: absolute; right:40px ;top:5px; display:inline-block;'>
+					{% trans 'Profils' %}</a>
+				<img src="{{ user.profile.image.url }}" alt="Profile"
+					style='width:35px;height:35px; display:inline-block; border-radius: 50%;position: absolute;right:0; top:-2px' />
 				{% else %}
-				<li class="right">
-					<a href="{% url 'login' %}">{% trans 'Pieslēgties' %}</a>
-				</li>
-				<a class="stick2">|</a>
-				<li class="right">
-					<a href="{% url 'register' %}">{% trans 'Reģistrēties' %}</a>
-				</li>
+				<a href="{% url 'account' %}" style=' display:inline-block;'>{% trans 'Profils' %}</a>
+				<i class="bi bi-person-circle"></i>
 				{% endif %}
-			</ul>
-		</div>
+			</li>
+		</ul>
+	</div>
 
-		<div class="site_undertop">
-			<div class="Logo">
-				<a class="Logo" href="{% url 'sakums' %}">BALTICTECH.com</a>
-			</div>
-			<form class="boxContainer" action='{% url "search" %}'>
-				<input type="text" placeholder="{% trans 'Meklēt...' %}" class="search" name='search' />
-			</form>
-			<ul class="right_menu">
-				<li class="cart"><a href="{% url 'cart' %}">{% trans 'Grozs' %}</a></li>
-				<ion-icon name="cart-outline" class="carticon"></ion-icon>
-				<li class="acc">
-					{% if user.is_authenticated %}
-						<a href="{% url 'account' %}" style='position: absolute; right:40px ;top:5px; display:inline-block;'>{% trans 'Profils' %}</a>
-						<img src="{{ user.profile.image.url }}" alt="Profile" style='width:35px;height:35px; display:inline-block; border-radius: 50%;position: absolute;right:0; top:-2px'/>
-					{% else %}
-						<a href="{% url 'account' %}" style=' display:inline-block;'>{% trans 'Profils' %}</a>
-						<i class="bi bi-person-circle"></i>
-					{% endif %}
-				</li>
-			</ul>
-		</div>
+	{% block body %}{% endblock %}
+</body>
+<script src="{% static '/majaslapa/js/base.js' %}"></script>
+{% block js %}{% endblock %}
 
-		{% block body %}{% endblock %}
-	</body>
-	<script src="{% static '/majaslapa/js/base.js' %}"></script>
-	{% block js %}{% endblock %}
 </html>

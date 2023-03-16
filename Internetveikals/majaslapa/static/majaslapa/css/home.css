@@ -17,7 +17,7 @@
 #category .cat {
     width: 17em;
     height: 17em;
-    background-color: #fff;
+    background-color: var(--clr-white);
 
 }
 
@@ -33,7 +33,7 @@
 
 #category .cat h1 {
     margin-top: 15px;
-    color: black;
+    color: var(--clr-text);
 }
 
 #category .cat hr {
@@ -58,7 +58,7 @@ nav {
   }
 
 .pagination a {
-    color: black;
+    color: var(--clr-text);
     float: left;
     padding: 8px 16px;
     text-decoration: none;
@@ -66,7 +66,7 @@ nav {
 
 .pagination a.active {
     background-color: #6FB64D;
-    color: white;
+    color: var(--clr-text);
   }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}

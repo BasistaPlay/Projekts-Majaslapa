@@ -11,7 +11,7 @@
 th {
     text-align: left;
     padding: 5px;
-    color: #fff;
+    color: var(--clr-text);
     background-color: rgba(99, 180, 61, 0.7);
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
@@ -21,11 +21,11 @@ th {
 
 td{
     padding: 15px 10px;
-    background-color: #fff;
+    background-color: var(--clr-white);
 }
 
 .eks{
-    color: black;
+    color: var(--clr-text);
     font-weight: normal;
     padding: 10px 15px;
 }
@@ -76,7 +76,7 @@ td img{
     outline: none;
     border: none;
     width: 100%;
-    color: #fff;
+    color: var(--clr-text);
     cursor:pointer;
     background: rgba(99, 180, 61, 0.7);
 }
@@ -109,5 +109,5 @@ td img{
 
 
 td a{
-    color: black;
+    color: var(--clr-text);
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-11 01:27+0200\n"
+"POT-Creation-Date: 2023-03-07 22:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,64 +18,65 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\forms.py:48
+#: .\majaslapa\forms.py:48
 msgid "Lietotājs ar šādu e-pastu jau eksistē!"
 msgstr "A user with this e-mail already exists!"
 
-#: .\templates\majaslapa\Contact.html:6 .\templates\majaslapa\base.html:30
+#: .\majaslapa\templates\majaslapa\Contact.html:6
+#: .\majaslapa\templates\majaslapa\base.html:26
 msgid "kontakti"
 msgstr "Contact"
 
-#: .\templates\majaslapa\Contact.html:17
+#: .\majaslapa\templates\majaslapa\Contact.html:17
 msgid "Sazinieties ar mums"
 msgstr "Contact us"
 
-#: .\templates\majaslapa\Contact.html:27
+#: .\majaslapa\templates\majaslapa\Contact.html:27
 msgid "Tavs vārds"
 msgstr "Your name"
 
-#: .\templates\majaslapa\Contact.html:28
+#: .\majaslapa\templates\majaslapa\Contact.html:28
 msgid "Tava epasta adrese"
 msgstr "Your e-mail address"
 
-#: .\templates\majaslapa\Contact.html:31
+#: .\majaslapa\templates\majaslapa\Contact.html:31
 msgid "Temats"
 msgstr "Subject"
 
-#: .\templates\majaslapa\Contact.html:32
+#: .\majaslapa\templates\majaslapa\Contact.html:32
 msgid "Apraksts"
 msgstr "Details"
 
-#: .\templates\majaslapa\Contact.html:33
-#: .\templates\majaslapa\change-password.html:24
+#: .\majaslapa\templates\majaslapa\Contact.html:33
+#: .\majaslapa\templates\majaslapa\change-password.html:24
 msgid "Iesniegt"
 msgstr "Submit"
 
-#: .\templates\majaslapa\Contact.html:38
+#: .\majaslapa\templates\majaslapa\Contact.html:38
 msgid "Telefona nr.:"
 msgstr "Mobile:"
 
-#: .\templates\majaslapa\Contact.html:42
+#: .\majaslapa\templates\majaslapa\Contact.html:42
 msgid "E-pasts:"
 msgstr "E-mail:"
 
-#: .\templates\majaslapa\Contact.html:47
+#: .\majaslapa\templates\majaslapa\Contact.html:47
 msgid "Bieži uzdotie jautājumi"
 msgstr "Frequently asked questions"
 
-#: .\templates\majaslapa\Contact.html:50
+#: .\majaslapa\templates\majaslapa\Contact.html:50
 msgid "• Kā es varu redzēt izmaksas?"
 msgstr "• How do I see the costs?"
 
-#: .\templates\majaslapa\Contact.html:51
+#: .\majaslapa\templates\majaslapa\Contact.html:51
 msgid "Maksa summa tiks aprēķināta pasūtijumu lapā."
 msgstr "The total cost will be calculated at the check out page."
 
-#: .\templates\majaslapa\Contact.html:53
+#: .\majaslapa\templates\majaslapa\Contact.html:53
 msgid "• Cik ātri varēs saņemt preci?"
 msgstr "• How fast will the delivery be?"
 
-#: .\templates\majaslapa\Contact.html:54
+#: .\majaslapa\templates\majaslapa\Contact.html:54
 msgid ""
 "Ir paredzēts ka pasūtiju jūs saņemsiet no 1 dienas līdz 2 nedēļam, atkarīgs "
 "ko jūs pasūtīsiet."
@@ -83,49 +84,51 @@ msgstr ""
 "You can expect the delivery to take anywhere from about 1 day to 2 weeks "
 "depending on your order."
 
-#: .\templates\majaslapa\Product.html:21
+#: .\majaslapa\templates\majaslapa\Product.html:21
 msgid "Filtri"
 msgstr "Filters"
 
-#: .\templates\majaslapa\Product.html:25 .\templates\majaslapa\cart.html:24
-#: .\templates\majaslapa\order_info.html:27
+#: .\majaslapa\templates\majaslapa\Product.html:25
+#: .\majaslapa\templates\majaslapa\cart.html:24
+#: .\majaslapa\templates\majaslapa\order_info.html:27
 msgid "Cena"
 msgstr "Price"
 
-#: .\templates\majaslapa\Product.html:40
+#: .\majaslapa\templates\majaslapa\Product.html:34
 msgid "līdz"
 msgstr "to"
 
-#: .\templates\majaslapa\Product.html:52
+#: .\majaslapa\templates\majaslapa\Product.html:47
 msgid "Kārtot pēc"
 msgstr "Sort by"
 
-#: .\templates\majaslapa\Product.html:67
+#: .\majaslapa\templates\majaslapa\Product.html:57
 msgid "Lētākas augšpusē"
 msgstr "Cheaper at the top"
 
-#: .\templates\majaslapa\Product.html:71
+#: .\majaslapa\templates\majaslapa\Product.html:61
 msgid "Dārgākas augšpusē"
 msgstr "More expensive at the top"
 
-#: .\templates\majaslapa\Product.html:121
+#: .\majaslapa\templates\majaslapa\Product.html:105
 msgid "Filtrēt"
 msgstr "Filter"
 
-#: .\templates\majaslapa\Product.html:153
+#: .\majaslapa\templates\majaslapa\Product.html:147
 msgid "Ir pieejams"
 msgstr "Item is available"
 
-#: .\templates\majaslapa\Product.html:156
+#: .\majaslapa\templates\majaslapa\Product.html:151
 msgid "nav pieejams"
 msgstr "Item is not available"
 
-#: .\templates\majaslapa\about.html:6 .\templates\majaslapa\about.html:22
-#: .\templates\majaslapa\base.html:26
+#: .\majaslapa\templates\majaslapa\about.html:6
+#: .\majaslapa\templates\majaslapa\about.html:22
+#: .\majaslapa\templates\majaslapa\base.html:22
 msgid "Par mums"
 msgstr "About us"
 
-#: .\templates\majaslapa\about.html:23
+#: .\majaslapa\templates\majaslapa\about.html:23
 msgid ""
 "Mēs esam topošais zīmols no Latvijas. Mēs specializējamies jaunāko "
 "tehnoloģiju nodrošināšanā ar viszemākajām cenām, ātrākā piegāde, atsaucīga "
@@ -135,136 +138,150 @@ msgstr ""
 "the newest technologies, the lowest prices, fastest shipping, responsive "
 "customer service, and most of all, a pleasant shopping experience."
 
-#: .\templates\majaslapa\account.html:7 .\templates\majaslapa\base.html:49
-#: .\templates\majaslapa\base.html:98 .\templates\majaslapa\base.html:101
+#: .\majaslapa\templates\majaslapa\account.html:7
+#: .\majaslapa\templates\majaslapa\base.html:63
+#: .\majaslapa\templates\majaslapa\base.html:104
+#: .\majaslapa\templates\majaslapa\base.html:108
 msgid "Profils"
 msgstr "Profile"
 
-#: .\templates\majaslapa\account.html:15
+#: .\majaslapa\templates\majaslapa\account.html:15
 msgid "Sveiks"
 msgstr "Hello"
 
-#: .\templates\majaslapa\account.html:19
+#: .\majaslapa\templates\majaslapa\account.html:19
 msgid "Mainīt bildi"
 msgstr "Change picture"
 
-#: .\templates\majaslapa\account.html:21
+#: .\majaslapa\templates\majaslapa\account.html:21
 msgid "Saglabāt"
 msgstr "Save"
 
-#: .\templates\majaslapa\account.html:26
-#: .\templates\majaslapa\password_reset.html:23
-#: .\templates\majaslapa\password_reset_confirm.html:26
+#: .\majaslapa\templates\majaslapa\account.html:26
+#: .\majaslapa\templates\majaslapa\password_reset.html:23
+#: .\majaslapa\templates\majaslapa\password_reset_confirm.html:26
 msgid "Mainīt paroli"
 msgstr "Change password"
 
-#: .\templates\majaslapa\account.html:28
+#: .\majaslapa\templates\majaslapa\account.html:28
 msgid "Mani pasūtījumi"
 msgstr "My orders"
 
-#: .\templates\majaslapa\account.html:29
+#: .\majaslapa\templates\majaslapa\account.html:29
 msgid "Dzēst profilu"
 msgstr "Delete account"
 
-#: .\templates\majaslapa\account.html:45
+#: .\majaslapa\templates\majaslapa\account.html:45
 #, fuzzy
 #| msgid "Dzēst profilu"
 msgid "Dzēst kontu"
 msgstr "Delete account"
 
-#: .\templates\majaslapa\account.html:46
+#: .\majaslapa\templates\majaslapa\account.html:46
 msgid "Vai tiešām vēlaties dzēst savu kontu?"
 msgstr "Are you sure you want to delete your account?"
 
-#: .\templates\majaslapa\account.html:49
+#: .\majaslapa\templates\majaslapa\account.html:49
 msgid "Acelt"
 msgstr "Cancel"
 
-#: .\templates\majaslapa\base.html:45 .\templates\majaslapa\base.html:94
-#: .\templates\majaslapa\cart.html:7
+#: .\majaslapa\templates\majaslapa\base.html:29
+#: .\majaslapa\templates\majaslapa\instruction.html:6
+#: .\majaslapa\templates\majaslapa\instruction.html:17
+msgid "Instrukcija"
+msgstr "Instruction"
+
+#: .\majaslapa\templates\majaslapa\base.html:59
+#: .\majaslapa\templates\majaslapa\base.html:99
+#: .\majaslapa\templates\majaslapa\cart.html:7
 msgid "Grozs"
 msgstr "In cart"
 
-#: .\templates\majaslapa\base.html:72
+#: .\majaslapa\templates\majaslapa\base.html:77
 msgid "Izlogoties"
 msgstr "Logout"
 
-#: .\templates\majaslapa\base.html:76 .\templates\majaslapa\login.html:8
-#: .\templates\majaslapa\login.html:21 .\templates\majaslapa\login.html:40
-#: .\templates\majaslapa\register.html:32
+#: .\majaslapa\templates\majaslapa\base.html:81
+#: .\majaslapa\templates\majaslapa\login.html:8
+#: .\majaslapa\templates\majaslapa\login.html:21
+#: .\majaslapa\templates\majaslapa\login.html:40
+#: .\majaslapa\templates\majaslapa\register.html:31
 msgid "Pieslēgties"
 msgstr "Login"
 
-#: .\templates\majaslapa\base.html:80 .\templates\majaslapa\login.html:42
-#: .\templates\majaslapa\register.html:6 .\templates\majaslapa\register.html:16
-#: .\templates\majaslapa\register.html:30
+#: .\majaslapa\templates\majaslapa\base.html:85
+#: .\majaslapa\templates\majaslapa\login.html:42
+#: .\majaslapa\templates\majaslapa\register.html:6
+#: .\majaslapa\templates\majaslapa\register.html:16
+#: .\majaslapa\templates\majaslapa\register.html:28
 msgid "Reģistrēties"
 msgstr "Register"
 
-#: .\templates\majaslapa\base.html:91
+#: .\majaslapa\templates\majaslapa\base.html:96
 msgid "Meklēt..."
 msgstr "Search..."
 
-#: .\templates\majaslapa\cart.html:23
+#: .\majaslapa\templates\majaslapa\cart.html:23
 msgid "Produkts"
 msgstr "Product"
 
-#: .\templates\majaslapa\cart.html:25
+#: .\majaslapa\templates\majaslapa\cart.html:25
 msgid "Daudzums"
 msgstr "quantity"
 
-#: .\templates\majaslapa\cart.html:26 .\templates\majaslapa\cart.html:49
+#: .\majaslapa\templates\majaslapa\cart.html:26
+#: .\majaslapa\templates\majaslapa\cart.html:56
 msgid "Kopā"
 msgstr "Total"
 
-#: .\templates\majaslapa\change-password.html:6
+#: .\majaslapa\templates\majaslapa\change-password.html:6
 #, fuzzy
 #| msgid "Parole"
 msgid "Paroles maiņa"
 msgstr "Password"
 
-#: .\templates\majaslapa\change-password.html:18
+#: .\majaslapa\templates\majaslapa\change-password.html:18
 msgid "Pašreizējā parole:"
 msgstr "Current password:"
 
-#: .\templates\majaslapa\change-password.html:20
+#: .\majaslapa\templates\majaslapa\change-password.html:20
 msgid "Jauna parole:"
 msgstr "New password:"
 
-#: .\templates\majaslapa\change-password.html:22
+#: .\majaslapa\templates\majaslapa\change-password.html:22
 msgid "Atkārtojiet jauno paroli:"
 msgstr "Repeat new password:"
 
-#: .\templates\majaslapa\change-password.html:27
+#: .\majaslapa\templates\majaslapa\change-password.html:27
 msgid ""
 "Jūsu parole nedrīkst būt pārāk līdzīga citai jūsu personiskajai informācijai."
 msgstr "Your password can't be too similar to your other personal information."
 
-#: .\templates\majaslapa\change-password.html:28
+#: .\majaslapa\templates\majaslapa\change-password.html:28
 msgid "Jūsu parolei jāsatur vismaz 8 rakstzīmes."
 msgstr "Your password must contain at least 8 characters."
 
-#: .\templates\majaslapa\change-password.html:29
+#: .\majaslapa\templates\majaslapa\change-password.html:29
 msgid "Jūsu parole nevar būt bieži lietota parole."
 msgstr "Your password can’t be a commonly used password."
 
-#: .\templates\majaslapa\change-password.html:30
+#: .\majaslapa\templates\majaslapa\change-password.html:30
 msgid "Jūsu parole nevar būt tikai cipars."
 msgstr "Your password can’t be entirely numeric."
 
-#: .\templates\majaslapa\error\404.html:20
+#: .\majaslapa\templates\majaslapa\error\404.html:20
 msgid "Lapa"
 msgstr "Page"
 
-#: .\templates\majaslapa\error\404.html:20
+#: .\majaslapa\templates\majaslapa\error\404.html:20
 msgid "netika"
 msgstr "not"
 
-#: .\templates\majaslapa\error\404.html:20
+#: .\majaslapa\templates\majaslapa\error\404.html:20
 msgid "atrasta"
 msgstr "found"
 
-#: .\templates\majaslapa\error\404.html:23
+#: .\majaslapa\templates\majaslapa\error\404.html:23
 msgid ""
 "Atvainojiet, mēs nevarējām atrast šo lapu. Bet neuztraucieties, mūsu vietnē "
 "varat atrast daudz citu lietu"
@@ -272,81 +289,103 @@ msgstr ""
 "Sorry,we couldn't find this page. But don't worry,you can find plenty of "
 "other things on our"
 
-#: .\templates\majaslapa\error\404.html:23
+#: .\majaslapa\templates\majaslapa\error\404.html:23
 msgid "Sākumlapā"
 msgstr "homepage"
 
-#: .\templates\majaslapa\home.html:7
+#: .\majaslapa\templates\majaslapa\home.html:7
 msgid "Sākums"
 msgstr "Home"
 
-#: .\templates\majaslapa\home.html:19
+#: .\majaslapa\templates\majaslapa\home.html:19
 msgid "Iepirkties pēc kategorijas"
 msgstr "Shop by Category"
 
-#: .\templates\majaslapa\login.html:27 .\templates\majaslapa\register.html:45
+#: .\majaslapa\templates\majaslapa\instruction.html:19
+msgid " 1. Kā Reģistrēties "
+msgstr "Register"
+
+#: .\majaslapa\templates\majaslapa\instruction.html:21
+msgid ""
+"Lai lietotājs varētu iegādāties kādu preci, viņam vispirms jāreģistrē savs "
+"konts "
+msgstr "In order for the user to be able to purchase a product, he must first register his account"
+
+#: .\majaslapa\templates\majaslapa\instruction.html:22
+msgid "Lai to izdarīt jums ir nepieciešams:"
+msgstr "To do this you need:"
+
+#: .\majaslapa\templates\majaslapa\instruction.html:24
+msgid " 1. Galvenajā lapā augšējā labajā stūrī ir poga"
+msgstr "1. On the main page, there is a button in the upper right corner"
+
+#: .\majaslapa\templates\majaslapa\instruction.html:34
+msgid "5. Pēc tam jūsu konts tiks veiksmīgi saglabāts datu bāzē"
+msgstr "5. After that, your account will be successfully saved in the database"
+
+#: .\majaslapa\templates\majaslapa\login.html:27
+#: .\majaslapa\templates\majaslapa\register.html:44
 msgid "Lietotājvārds"
 msgstr "Username"
 
-#: .\templates\majaslapa\login.html:30 .\templates\majaslapa\register.html:47
+#: .\majaslapa\templates\majaslapa\login.html:30
+#: .\majaslapa\templates\majaslapa\register.html:46
 msgid "Parole"
 msgstr "Password"
 
-#: .\templates\majaslapa\login.html:41 .\templates\majaslapa\register.html:31
+#: .\majaslapa\templates\majaslapa\login.html:41
+#: .\majaslapa\templates\majaslapa\register.html:29
 msgid "vai"
 msgstr "or"
 
-#: .\templates\majaslapa\login.html:47
+#: .\majaslapa\templates\majaslapa\login.html:47
 msgid "Aizmirsi paroli?"
 msgstr "Forgot your password?"
 
-#: .\templates\majaslapa\login.html:52
+#: .\majaslapa\templates\majaslapa\login.html:52
 msgid "Pierakstieties, izmantojot Google"
 msgstr "Sign in using Google"
 
-#: .\templates\majaslapa\login.html:58
+#: .\majaslapa\templates\majaslapa\login.html:58
 msgid "Pierakstieties, izmantojot Facebook"
 msgstr "Sign in using Facebook"
 
-#: .\templates\majaslapa\order_info.html:18
-#| msgid "Mani pasūtījumi"
+#: .\majaslapa\templates\majaslapa\order_info.html:18
 msgid "Mani pastijumi"
 msgstr "My orders"
 
-#: .\templates\majaslapa\order_info.html:24
-
-#| msgid "Produkts"
+#: .\majaslapa\templates\majaslapa\order_info.html:24
 msgid "Produkta nosaukums"
 msgstr "Product name"
 
-#: .\templates\majaslapa\order_info.html:25
+#: .\majaslapa\templates\majaslapa\order_info.html:25
 msgid "Pirkšanas datums un laiks"
 msgstr "Purchase date"
 
-#: .\templates\majaslapa\order_info.html:28
-#| msgid "Produkts"
+#: .\majaslapa\templates\majaslapa\order_info.html:28
+#: .\majaslapa\templates\majaslapa\order_info.html:37
 msgid "Produkta lapa"
 msgstr "Product link"
 
-#: .\templates\majaslapa\password_reset.html:6
-#: .\templates\majaslapa\password_reset.html:17
-#: .\templates\majaslapa\password_reset_complete.html:6
-#: .\templates\majaslapa\password_reset_confirm.html:6
-#: .\templates\majaslapa\password_reset_sent.html:6
+#: .\majaslapa\templates\majaslapa\password_reset.html:6
+#: .\majaslapa\templates\majaslapa\password_reset.html:17
+#: .\majaslapa\templates\majaslapa\password_reset_complete.html:6
+#: .\majaslapa\templates\majaslapa\password_reset_confirm.html:6
+#: .\majaslapa\templates\majaslapa\password_reset_sent.html:6
 msgid "Atjaunot paroli"
 msgstr "Repeat password"
 
-#: .\templates\majaslapa\password_reset_complete.html:16
+#: .\majaslapa\templates\majaslapa\password_reset_complete.html:16
 msgid "Jūsu parole tika nomainīta!"
 msgstr "Your password was changed!"
 
-#: .\templates\majaslapa\password_reset_confirm.html:17
+#: .\majaslapa\templates\majaslapa\password_reset_confirm.html:17
 #, fuzzy
 #| msgid "atkārtojiet paroli"
 msgid "Ievadiet jauno paroli"
 msgstr "repeat password"
 
-#: .\templates\majaslapa\password_reset_confirm.html:19
+#: .\majaslapa\templates\majaslapa\password_reset_confirm.html:19
 msgid ""
 "Lūdzu ievadiet jauno paroli divreiz, lai varētu pārbaudīt, ka tā ir "
 "uzrakstīta pareizi."
@@ -354,11 +393,11 @@ msgstr ""
 "Please enter the new password twice so that you can check that it is spelled "
 "correctly."
 
-#: .\templates\majaslapa\password_reset_sent.html:16
+#: .\majaslapa\templates\majaslapa\password_reset_sent.html:16
 msgid "Paroles pārstatīšana nosūtīta"
 msgstr "Password reset sent"
 
-#: .\templates\majaslapa\password_reset_sent.html:18
+#: .\majaslapa\templates\majaslapa\password_reset_sent.html:18
 msgid ""
 "Ja sistēmā ir konts ar jūsu e-pasta adresi, tad mēs jums tikko nosūtījām e-"
 "pasta ziņojumu ar paroles iestatīšanas instrukciju. Jums to tūlīt vajadzētu "
@@ -368,7 +407,7 @@ msgstr ""
 "just sent you an email with instructions for setting a password. You should "
 "receive it immediately."
 
-#: .\templates\majaslapa\password_reset_sent.html:19
+#: .\majaslapa\templates\majaslapa\password_reset_sent.html:19
 msgid ""
 "Ja nesaņemat e-pastu, lūdzu, pārliecinieties, vai esat ievadījis reģistrētu "
 "adresi un pārbaudiet savu mēstuļu mapi."
@@ -376,61 +415,61 @@ msgstr ""
 "If you do not receive an email, please make sure you have entered a "
 "registered address and check your spam folder."
 
-#: .\templates\majaslapa\product_info.html:47
+#: .\majaslapa\templates\majaslapa\product_info.html:49
 msgid "Daudzums:"
 msgstr "Quantity:"
 
-#: .\templates\majaslapa\product_info.html:52
+#: .\majaslapa\templates\majaslapa\product_info.html:54
 msgid "Pirkt"
 msgstr "Check Out"
 
-#: .\templates\majaslapa\product_info.html:53
+#: .\majaslapa\templates\majaslapa\product_info.html:56
 msgid "Ielikt Grozā"
 msgstr "Add To Cart"
 
-#: .\templates\majaslapa\product_info.html:63
+#: .\majaslapa\templates\majaslapa\product_info.html:67
 msgid "Tehniskā specifikācija"
 msgstr "Technical specification"
 
-#: .\templates\majaslapa\product_info.html:64
+#: .\majaslapa\templates\majaslapa\product_info.html:70
 msgid "Preces apraksts"
 msgstr "Product description"
 
-#: .\templates\majaslapa\register.html:46
+#: .\majaslapa\templates\majaslapa\register.html:45
 msgid "E-pasts"
 msgstr "E-mail"
 
-#: .\templates\majaslapa\register.html:48
+#: .\majaslapa\templates\majaslapa\register.html:47
 #, fuzzy
 #| msgid "atkārtojiet paroli"
 msgid "Atkārtot paroli"
 msgstr "repeat password"
 
-#: .\views.py:111
+#: .\majaslapa\views.py:120
 msgid "Nav pareizs lietotājvārds vai parole"
 msgstr "Incorrect username or password"
 
-#: .\views.py:126
+#: .\majaslapa\views.py:136
 #, fuzzy
 #| msgid "Reģistrēties"
 msgid "Reģistrācija veiksmīga"
 msgstr "Registration successful"
 
-#: .\views.py:227
+#: .\majaslapa\views.py:254
 msgid "Jūsu vēstule tika nosūtia mums!"
 msgstr "Your letter has been sent to us!"
 
-#: .\views.py:251
+#: .\majaslapa\views.py:277
 msgid ""
 "Paldies par e-pasta apstiprinājumu. Tagad varat pierakstīties savā kontā."
 msgstr ""
 "Thanks for the email confirmation. You can now sign in to your account."
 
-#: .\views.py:254
+#: .\majaslapa\views.py:280
 msgid "Aktivizācijas saite nav derīga!"
 msgstr "Activation link is invalid!"
 
-#: .\views.py:278
+#: .\majaslapa\views.py:306
 #, python-brace-format
 msgid ""
 "Cien {user}, lūdzu dodieties uz e-pasta {Email} iesūtni un noklikšķiniet "
@@ -441,7 +480,7 @@ msgstr ""
 "link to confirm and complete registration. Note: If you do not see the "
 "email, please check your spam folder."
 
-#: .\views.py:281
+#: .\majaslapa\views.py:310
 #, python-brace-format
 msgid ""
 "Notika problēma, sūtot e-pastu uz {Email}, pārbaudiet, vai ierakstījāt "

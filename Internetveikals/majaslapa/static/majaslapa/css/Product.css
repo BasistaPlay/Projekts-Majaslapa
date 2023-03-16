@@ -1,5 +1,5 @@
 .sidebar {
-	background: #fff;
+	background-color: var(--clr-white);
 	min-height: 100vh;
 	width: 340px;
 	padding: 10px 20px;
@@ -9,17 +9,17 @@
 
 .filter_title a {
 	font-family: "Montserrat", sans-serif;
-	color: black;
+	color: var(--clr-text);
 	font-weight: 570;
 	font-size: 130%;
 }
 .filter_title_main {
-	border-bottom: 1px solid #d9d9d9;
+	background-color: var(--clr-white);
 	padding-bottom: 5px;
 	padding-top: 5px;
 }
 .filter_title_main a{
-    color: black;
+    color: var(--clr-text);
 }
 .sidebar_content {
 	border-bottom: 1px solid #d9d9d9;
@@ -30,7 +30,7 @@
 .input1 input[type="number"] {
 	width: 75px;
 	height: 30px;
-	background-color: #e8e8e8;
+	background-color: var(--clr-white);
 	border-color: #c1c1c1;
 	border-width: 1px;
 	text-align: center;
@@ -75,11 +75,11 @@
 	left: 0;
 	height: 25px;
 	width: 25px;
-	background-color: #eee;
+	background-color: var(--clr-white);
 	border: 1px solid #c1c1c1;
 }
 .mark:hover input ~ .checkmark {
-	background-color: #ccc;
+	background-color: var(--clr-white);
 }
 .mark input:checked ~ .checkmark {
 	background-color: rgb(39, 41, 39);
@@ -155,6 +155,9 @@ svg {
 .item {
 	color: black;
 }
+.item label{
+	color: var(--clr-text);
+}
 
 .acardion{
     outline: none;
@@ -164,13 +167,14 @@ svg {
     text-align: center;
     padding: 5px;
     top: 100px;
+	background: var(--clr-white);
 }
 
 .sidebar_content.active  {
 	max-height: 300px;
 }
 .acardion{
-    background-color: #fff
+    background-color: var(--clr-white);
 }
 .products-container{
     height: 800px;
@@ -185,7 +189,7 @@ svg {
 	display:inline-block;
 	position: static;
     height: 365px;
-    background-color: #fff;
+    background-color: var(--clr-white);
     margin: 20px;
     padding:0px 25px;
     cursor: pointer;
@@ -202,10 +206,12 @@ svg {
     height: 150px;
 	max-width: 200px;
     display: flex;
+	mix-blend-mode: multiply;
 }
 .product-opt h1{
     padding-top: 20px;
 	margin-top: -10px;
+	color: var(--clr-text);
 }
 .product-opt p {
     font-family: 'Montserrat', sans-serif;
@@ -213,16 +219,19 @@ svg {
 	overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+	color: var(--clr-text);
 }
 .product-opt ul {
     padding-left: 23px;
     padding-top: 15px;
     padding-bottom: 35px;
     color: #636363;
+	color: var(--clr-text);
 }
 .product-opt li{
     font-family: 'Montserrat', sans-serif;
     padding-bottom: 5px;
+	color: var(--clr-text);
 }
 .product-status{
     display:inline-flex;
@@ -340,4 +349,8 @@ button{
     cursor:pointer;
     background: rgba(99, 180, 61, 0.7);
 
+}
+
+path{
+	color: var(--clr-text);
 }

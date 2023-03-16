@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static '/majaslapa/css/cart.css' %}">
+<link rel="stylesheet" href="{% static '/majaslapa/css/cart.css' %}">
 {% endblock %}
 
 
@@ -16,46 +16,58 @@
 {% load cart_tag %}
 
 <div class="cart_page">
-    <table class="table1">
-        <tr>
-            <th></th>
-            <th></th>
-            <th>{% trans 'Produkts' %}</th>
-            <th>{% trans 'Cena' %}</th>
-            <th>{% trans 'Daudzums' %}</th>
-            <th>{% trans 'Kopā' %}</th>
-        </tr>
-        {% for key,value in request.session.cart.items %}
-        <tr>
-            <td><a class="eks" href="{% url 'item_clear' key %}">✖</a></td>
-            <td><img src="{{value.image}}" alt="Dators1"></td>
-            <td><p>{{value.name}}</p></td>
-            <td><p>{{value.price}}€</p></td>
-            <td>
-                {% if value.quantity == 1 %}
-                {% else %}
-                <a href="{% url 'item_decrement' value.product_id %}">-</a>
-                {% endif %}
-                <input type="number" value="{{value.quantity}}" min="1" disabled="disabled">
-                <a href="{% url 'item_increment' value.product_id %}">+</a>
-            </td>
-            <td><p>{{ value.price|multiply:value.quantity|floatformat:2 }}€</p></td>
-        </tr>
-        {% endfor %}
-            <div class="checkout">
-        {% if cart_total_amount > 0 %}
-        <table class="table2">
-                <tr>
-                    <td><p>{% trans 'Kopā' %}</p></td>
-                    <td><p>{{cart_total_amount|floatformat:2}} €</p></td>
-                </tr>
-                <tr>
-                    {% comment %} <td colspan="2"><div id=""></div></td> {% endcomment %}
-                    <td colspan="2"><button class="cartbutton" id="submitBtn">Purchase!</button></td>
-                </tr>
-        </table>
-         <script src="https://js.stripe.com/v3/"></script>
+  <table class="table1">
+    <tr>
+      <th></th>
+      <th></th>
+      <th>{% trans 'Produkts' %}</th>
+      <th>{% trans 'Cena' %}</th>
+      <th>{% trans 'Daudzums' %}</th>
+      <th>{% trans 'Kopā' %}</th>
+    </tr>
+    {% for key,value in request.session.cart.items %}
+    <tr>
+      <td><a class="eks" href="{% url 'item_clear' key %}">✖</a></td>
+      <td><img src="{{value.image}}" alt="Dators1"></td>
+      <td>
+        <p>{{value.name}}</p>
+      </td>
+      <td>
+        <p>{{value.price}}€</p>
+      </td>
+      <td>
+        {% if value.quantity == 1 %}
+        {% else %}
+        <a href="{% url 'item_decrement' value.product_id %}">-</a>
         {% endif %}
+        <input type="number" value="{{value.quantity}}" min="1" disabled="disabled">
+        <a class="pluss" href="{% url 'item_increment' value.product_id %}">+</a>
+      </td>
+      <td>
+        <p>{{ value.price|multiply:value.quantity|floatformat:2 }}€</p>
+      </td>
+    </tr>
+    {% endfor %}
+    <div class="checkout">
+      {% if cart_total_amount > 0 %}
+      <table class="table2">
+        <tr>
+          <td>
+            <p>{% trans 'Kopā' %}</p>
+          </td>
+          <td>
+            <p>{{cart_total_amount|floatformat:2}} €</p>
+          </td>
+        </tr>
+        <tr>
+          {% comment %} <td colspan="2">
+            <div id=""></div>
+          </td> {% endcomment %}
+          <td colspan="2"><button class="cartbutton" id="submitBtn">Purchase!</button></td>
+        </tr>
+      </table>
+      <script src="https://js.stripe.com/v3/"></script>
+      {% endif %}
     </div>
 </div>
 
@@ -67,26 +79,26 @@
 
   // Get Stripe publishable key
   fetch("/config/")
-  .then((result) => { return result.json(); })
-  .then((data) => {
-    // Initialize Stripe.js
-    const stripe = Stripe(data.publicKey);
+    .then((result) => { return result.json(); })
+    .then((data) => {
+      // Initialize Stripe.js
+      const stripe = Stripe(data.publicKey);
 
-    // new
-    // Event handler
-    document.querySelector("#submitBtn").addEventListener("click", () => {
-      // Get Checkout Session ID
-      fetch("/create-checkout-session/")
-      .then((result) => { return result.json(); })
-      .then((data) => {
-        console.log(data);
-        // Redirect to Stripe Checkout
-        return stripe.redirectToCheckout({sessionId: data.sessionId})
-      })
-      .then((res) => {
-        console.log(res);
+      // new
+      // Event handler
+      document.querySelector("#submitBtn").addEventListener("click", () => {
+        // Get Checkout Session ID
+        fetch("/create-checkout-session/")
+          .then((result) => { return result.json(); })
+          .then((data) => {
+            console.log(data);
+            // Redirect to Stripe Checkout
+            return stripe.redirectToCheckout({ sessionId: data.sessionId })
+          })
+          .then((res) => {
+            console.log(res);
+          });
       });
     });
-  });
-  </script>
+</script>
 {% endblock %}
